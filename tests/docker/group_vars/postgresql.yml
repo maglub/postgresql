@@ -46,6 +46,6 @@ postgresql_ext_install_postgis: false
 postgresql_database_extensions:
   - db: foobar
     extensions:
-    - adminpack
-    - pgcrypto
-    - unaccent
+      - adminpack
+      - pgcrypto
+      - unaccent

@@ -6,6 +6,7 @@ name: CI
     branches:
       - master
       - github-actions
+      - yamllint
 #  schedule:
 #    - cron: "0 4 * * 4"
 
@@ -15,26 +16,26 @@ defaults:
 
 jobs:
 
-#  lint:
-#    name: Lint
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Check out the codebase.
-#        uses: actions/checkout@v2
-#        with:
-#          path: 'postgresql'
-#
-#      - name: Set up Python 3.
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: '3.x'
-#
-#      - name: Install test dependencies.
-#        run: pip3 install yamllint
-#
-#      - name: Lint code.
-#        run: |
-#          yamllint .
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'postgresql'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install yamllint
+
+      - name: Lint code.
+        run: |
+          yamllint .
 
   molecule:
     name: Molecule
